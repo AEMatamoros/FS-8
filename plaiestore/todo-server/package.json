@@ -1,0 +1,16 @@
+{
+  "name": "goit-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "json-server --watch db.json"
+  },
+  "keywords": [],
+  "author": "Alexis <Juanq@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.3"
+  }
+}

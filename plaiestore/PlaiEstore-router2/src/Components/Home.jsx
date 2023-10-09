@@ -1,13 +1,12 @@
+import { useEffect, useState, useRef } from "react";
 import Card from "./Card";
+// import { CardBody, CardIMG } from "./Card";
 import Modal from "./Modal";
 import useModal from "../hooks/useModal";
 import useFetch from "../hooks/useFetch";
-import { useEffect, useState, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
-export default function Home() {
-  //Params
-  const [searchParams, setSearchParams] = useSearchParams();
 
+export default function Home() {
   //Modal
   const { showModal, handleshowModal, handleCloseModal } = useModal();
   //Manejar el estado
@@ -48,10 +47,6 @@ export default function Home() {
   }, []);
 
   const handleFilter = () => {
-    // console.log(!!searchParams.get("name").trim());
-    setApps((prev) => {
-      return { ...prev, loading: true };
-    });
     if (!!searchParams.get("name").trim()) {
       setFilteredApps((prev) => {
         return {
@@ -68,26 +63,10 @@ export default function Home() {
         return { ...prev, data: apps.data };
       });
     }
-    setApps((prev) => {
-      return { ...prev, loading: false };
-    });
   };
 
-  useEffect(() => {
-    if (searchParams.size > 0 && !!searchParams.get("name").trim()) {
-      handleFilter();
-      // console.log("Called");
-    }
-  }, []);
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  //REF
-  const formRef = useRef(null);
-  // const handleClearForm = () => {
-  //   console.log(formRef.current);
-  //   formRef.current.reset();
-  //   console.log("Limpiando");
-  // };
-  // console.log("Renderizando");
   return (
     <>
       <div className="container">
@@ -99,10 +78,7 @@ export default function Home() {
               placeholder="Mario..."
               aria-label="Mario..."
               onChange={(e) => {
-                setSearchParams({
-                  name: e.target.value,
-                  description: "Default",
-                });
+                setSearchParams({ name: e.target.value });
               }}
             />
 
@@ -114,27 +90,21 @@ export default function Home() {
               Buscar
             </button>
           </form>
-          {apps.loading ? (
-            <h1>Cargando</h1>
-          ) : (
-            <>
-              {!!filteredApps.data &&
-                filteredApps.data.length > 0 &&
-                filteredApps.data.map((app, index) => (
-                  <Card
-                    app={app}
-                    key={index}
-                    handleshowModal={handleshowModal}
-                    setCurrentApp={setCurrentApp}
-                  >
-                    {/* <CardIMG></CardIMG>
+          {!!filteredApps.data &&
+            filteredApps.data.length > 0 &&
+            filteredApps.data.map((app, index) => (
+              <Card
+                app={app}
+                key={index}
+                handleshowModal={handleshowModal}
+                setCurrentApp={setCurrentApp}
+              >
+                {/* <CardIMG></CardIMG>
                 <CardBody></CardBody> */}
-                    <Card.CardIMG></Card.CardIMG>
-                    <Card.CardBody></Card.CardBody>
-                  </Card>
-                ))}
-            </>
-          )}
+                <Card.CardIMG></Card.CardIMG>
+                <Card.CardBody></Card.CardBody>
+              </Card>
+            ))}
         </div>
       </div>
       <Modal

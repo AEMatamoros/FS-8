@@ -1,16 +1,28 @@
-import React, { Suspense } from "react";
-import { Outlet } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { Outlet, useNavigate, Navigate, useLocation } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { UserDataContext } from "../router/Navigation";
 export default function About() {
+  let navigate = useNavigate();
+  let { isLogged } = useContext(UserDataContext);
+  const gotoPlanInfo = () => {
+    navigate("/", { replace: true });
+  };
   const location = useLocation();
-  // console.log(location);
+  console.log(location);
   return (
     <div>
+      {!isLogged && <Navigate to="/" replace />}
       <div className="container py-3">
+        <NavLink to={location.state.from}>Back to products</NavLink>;
         <main>
           <div className="row row-cols-1 row-cols-md-3 mb-3 text-center">
-            <div className="col">
+            <div
+              className="col"
+              onClick={() => {
+                gotoPlanInfo();
+              }}
+            >
               <div className="card mb-4 rounded-3 shadow-sm">
                 <div className="card-header py-3">
                   <h4 className="my-0 fw-normal">Free</h4>
@@ -112,15 +124,7 @@ export default function About() {
           About Team
         </NavLink>
       </nav>
-      <Suspense
-        fallback={
-          <div className="spinner-border text-primary" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </div>
-        }
-      >
-        <Outlet />
-      </Suspense>
+      <Outlet />
     </div>
   );
 }

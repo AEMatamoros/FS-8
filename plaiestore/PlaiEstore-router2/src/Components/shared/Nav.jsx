@@ -19,15 +19,8 @@ export default function Nav() {
       <NavLink className="navlink" to="/">
         Products
       </NavLink>
-      <NavLink
-        className="navlink"
-        to="/about"
-        state={{ description: "Esta es la descripcion de la pagina" }}
-      >
+      <NavLink className="navlink" to="/about" state={{ from: "/" }}>
         About
-      </NavLink>
-      <NavLink className="navlink" to="/loggedin">
-        Logged In View
       </NavLink>
     </nav>
   );

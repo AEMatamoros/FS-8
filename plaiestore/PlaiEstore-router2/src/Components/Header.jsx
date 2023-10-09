@@ -1,17 +1,10 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import { UserDataContext } from "../router/Navigation";
 
 export default function Header() {
   let { userName, firstName, lastName, isLogged, setIsLogged } =
     useContext(UserDataContext);
   // console.log(userName, firstName, lastName, age);
-  const navigate = useNavigate();
-
-  const handleGotoLogin = () => {
-    navigate("/login", { replace: true });
-  };
-
   return (
     <nav className="navbar bg-body-tertiary border-bottom">
       <div className="container-fluid">
@@ -44,20 +37,21 @@ export default function Header() {
           </svg>
           Alev Plaiestore
         </span>
+        <label title={`${firstName} ${lastName}`}>{userName}</label>
         {isLogged ? (
-          <h1
+          <strong
+            className="cursor-pointer"
             onClick={() => {
               setIsLogged(false);
             }}
-            title={`${firstName} ${lastName}`}
           >
-            {userName}
-          </h1>
+            Cerrar Sesion
+          </strong>
         ) : (
           <strong
             className="cursor-pointer"
             onClick={() => {
-              handleGotoLogin();
+              setIsLogged(true);
             }}
           >
             Iniciar Sesion

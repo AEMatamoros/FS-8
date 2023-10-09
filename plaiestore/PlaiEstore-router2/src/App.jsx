@@ -1,7 +1,5 @@
-import useFetch from "./hooks/useFetch";
 import Home from "./Components/Home";
-import Header from "./Components/Header";
-import Nav from "./Components/shared/Nav";
+import { createContext, useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
