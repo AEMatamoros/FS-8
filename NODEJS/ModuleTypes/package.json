@@ -1,0 +1,14 @@
+{
+  "name": "nodejs--fs8",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev:c": "node ./src/index.js",
+    "dev:e": "node ./src/index.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Alexis <Juanq@gmail.com>",
+  "license": "ISC"
+}
