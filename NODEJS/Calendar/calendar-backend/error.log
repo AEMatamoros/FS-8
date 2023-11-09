@@ -1,0 +1,11 @@
+error: ValidationError: "bgcolor" is required
+error: ValidationError: "bgcolor" is required
+error: ValidationError: "bgcolor" is required
+error: ValidationError: "bgcolor" is required
+error: ValidationError: taskModel validation failed: notaextra: Path `notaextra` is required.
+    at Document.invalidate (C:\Users\Alexis\Desktop\FS8\NODEJS\Calendar\calendar-backend\node_modules\mongoose\lib\document.js:3174:32)
+    at C:\Users\Alexis\Desktop\FS8\NODEJS\Calendar\calendar-backend\node_modules\mongoose\lib\document.js:2967:17
+    at C:\Users\Alexis\Desktop\FS8\NODEJS\Calendar\calendar-backend\node_modules\mongoose\lib\schemaType.js:1367:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+error: ValidationError: "bgcolor" is required
+error: ValidationError: "bgcolor" is required

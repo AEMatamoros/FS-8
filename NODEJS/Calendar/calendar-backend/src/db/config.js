@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const connectToDb = async () => {
   try {
@@ -6,7 +6,7 @@ const connectToDb = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    console.log("Conectado a la BD");
+    console.log('Conectado a la BD');
   } catch (error) {
     console.log(error);
   }

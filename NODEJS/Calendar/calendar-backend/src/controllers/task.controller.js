@@ -1,24 +1,21 @@
-const taskModel = require("../models/task.schema");
+const taskModel = require('../models/task.schema');
 
-const getAllTasks = async (req, res) => {
+const getAllTasks = async (req, res, next) => {
   try {
     const tasks = await taskModel.find();
     res.status(200).json({
-      title: "Success",
-      msg: "Task obtained successfuly",
+      title: 'Success',
+      msg: 'Task obtained successfuly',
       code: 200,
       result: tasks,
     });
   } catch (error) {
-    res.status(400).json({
-      title: "Error",
-      msg: "Error ocurred during search",
-      code: 400,
-    });
+    next(error);
   }
 };
 
-const createTask = async (req, res) => {
+const createTask = async (req, res, next) => {
+  console.log('Creating Task');
   try {
     let newTask = {
       title: req.body.title,
@@ -30,21 +27,17 @@ const createTask = async (req, res) => {
     const task = taskModel(newTask);
     let createdTask = await task.save();
     res.status(200).json({
-      title: "Success",
-      msg: "Task created Successfuly",
+      title: 'Success',
+      msg: 'Task created Successfuly',
       code: 200,
       result: createdTask,
     });
   } catch (error) {
-    res.status(400).json({
-      title: "Error",
-      msg: "Error ocurred during create",
-      code: 400,
-    });
+    next(error);
   }
 };
 
-const updateTask = async (req, res) => {
+const updateTask = async (req, res, next) => {
   try {
     // const toUpdateTask = await taskModel.findById(req.params.id);
     let toUpdateTask = {
@@ -60,47 +53,38 @@ const updateTask = async (req, res) => {
       toUpdateTask,
       {
         new: true,
-      }
+      },
     );
     if (!updatedTask) {
       res.status(400).json({
-        title: "Error",
-        msg: "Error ocurred during update",
+        title: 'Error',
+        msg: 'Error ocurred during update',
         code: 400,
       });
       return;
     }
     res.status(200).json({
-      title: "Success",
-      msg: "Task updated Successfuly",
+      title: 'Success',
+      msg: 'Task updated Successfuly',
       code: 200,
       result: updatedTask,
     });
   } catch (error) {
-    res.status(400).json({
-      title: "Error",
-      msg: "Error ocurred during update",
-      code: 400,
-    });
+    next(error);
   }
 };
 
-const deleteTask = async (req, res) => {
+const deleteTask = async (req, res, next) => {
   try {
     let deletedTask = await taskModel.findOneAndDelete({ _id: req.params.id });
     res.status(200).json({
-      title: "Success",
-      msg: "Task updated Successfuly",
+      title: 'Success',
+      msg: 'Task updated Successfuly',
       code: 200,
       result: deletedTask,
     });
   } catch (error) {
-    console.log(error);
-    res.status(400).json({
-      title: "Error",
-      msg: "Error ocurred during delete",
-      code: 400,
-    });
+    next(error);
   }
 };
 

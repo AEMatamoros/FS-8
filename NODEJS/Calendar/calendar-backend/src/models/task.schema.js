@@ -24,6 +24,11 @@ const taskSchema = Schema({
     trim: true,
     required: true,
   },
+  notaextra: {
+    type: String,
+    trim: true,
+    required: true,
+  },
 });
 
 module.exports = model("taskModel", taskSchema);

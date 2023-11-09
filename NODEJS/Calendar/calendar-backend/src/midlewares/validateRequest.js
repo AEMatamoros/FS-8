@@ -11,12 +11,7 @@ const validationSchema = Joi.object({
 function validateModel(req, res, next) {
   const { error } = validationSchema.validate(req.body);
   if (error) {
-    res.status(400).json({
-      title: "Error",
-      msg: "Error ocurred during search",
-      code: 400,
-      error,
-    });
+    next(error);
     return;
   }
   next();
