@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="" id="counterLabel">0</label>
+    <br>
+    <button id="counterButton">Aumentar</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
+        integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+
+        // _.throttle(functionName, delay)
+        // _.debounce(functionName, delay)
+        // {
+        //   leading: true,
+        //   trailing: false,
+        // }
+        let counterButtonE = document.querySelector("#counterButton")
+        let counterLabel = document.querySelector("#counterLabel")
+        let counter = 0;
+        function augmentCounter() {
+            counter += 1;
+            counterLabel.textContent = counter;
+        }
+        // counterButtonE.addEventListener("click", augmentCounter) 
+        //Delay entre llamados
+        // counterButtonE.addEventListener("click", _.throttle(augmentCounter, 2000));
+
+        //Ejecurta la funcion despues dle ultimo llamado de evento y despues de que se cumple el tiempo de retraso
+        counterButtonE.addEventListener("click", _.debounce(augmentCounter, 2000, {
+            leading: true,
+            trailing: false,
+        }));
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@400;500;700;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+    integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./css/styles.css" />
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <nav class="header__nav">
+        <a href="./index.html" class="logo link">Web<span class="logo--dark">Studio</span></a>
+        <ul class="header__navigation list">
+          <li class="header__item">
+            <a href="./index.html" class="link header__link header__link--current">Studio</a>
+          </li>
+          <li class="item">
+            <a href="./portfolio.html" class="link header__link">Portfolio</a>
+          </li>
+          <li class="item"><a href="#" class="link header__link">Contactos</a></li>
+        </ul>
+      </nav>
+      <ul class="header__contacts list">
+        <li class="header__contact__item">
+          <a href="mailto:info@devstudio.com" class="link header__contact__link">
+            <svg class="header-contact-icon" width="16px" height="12px">
+              <use href="./images/icons.svg#envelope"></use>
+            </svg>
+            info@devstudio.com
+          </a>
+        </li>
+        <li class="header__contact__item">
+          <a href="tel:+525555296000" class="link header__contact__link">
+            <svg class="header-contact-icon" width="10px" height="16px">
+              <use href="./images/icons.svg#smartphone"></use>
+            </svg>
+            +52 55 5529 6000
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+  <main class="main">
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero__title" id="idMainTitle">SOLUCIONES EFICACES PARA SU NEGOCIO</h1>
+        <button type="button" class="btn" data-modal-open>Solicite nuestro servicio</button>
+      </div>
+    </section>
+    <section class="caresteristics section pb-0">
+      <div class="container">
+        <ul class="caracteristics__list list">
+          <li class="caracteristics__item">
+            <div class="caracteristics__icon__container">
+              <svg class="caracteristics__icon" width="70px" height="70px">
+                <use href="./images/icons.svg#antenna"></use>
+              </svg>
+            </div>
+            <h3 class="feature-title">ATENCIÓN A LOS DETALLES</h3>
+            <p class="feature-text">
+              Nos adentramos en todos los detalles y procesos de su negocio, para así desarrollar una solución a su
+              medida.
+            </p>
+          </li>
+          <li class="caracteristics__item">
+            <div class="caracteristics__icon-container">
+              <svg class="caracteristics__icon" width="70px" height="70px">
+                <use href="./images/icons.svg#clock"></use>
+              </svg>
+            </div>
+            <h3 class="feature-title">ATENCIÓN A LOS DETALLES</h3>
+            <p class="feature-text">
+              Nos adentramos en todos los detalles y procesos de su negocio, para así desarrollar una solución a su
+              medida.
+            </p>
+          </li>
+          <li class="caracteristics__item">
+            <div class="caracteristics__icon__container">
+              <svg class="caracteristics__icon" width="70px" height="70px">
+                <use href="./images/icons.svg#diagram"></use>
+              </svg>
+            </div>
+            <h3 class="feature-title">ATENCIÓN A LOS DETALLES</h3>
+            <p class="feature-text">
+              Nos adentramos en todos los detalles y procesos de su negocio, para así desarrollar una solución a su
+              medida.
+            </p>
+          </li>
+          <li class="caracteristics__item">
+            <div class="caracteristics__icon__container">
+              <svg class="caracteristics__icon" width="70px" height="70px">
+                <use href="./images/icons.svg#astronaut"></use>
+              </svg>
+            </div>
+            <h3 class="feature-title">ATENCIÓN A LOS DETALLES</h3>
+            <p class="feature-text">
+              Nos adentramos en todos los detalles y procesos de su negocio, para así desarrollar una solución a su
+              medida.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">A qué nos dedicamos</h2>
+        <ul class="example list">
+          <li class="example__item item">
+            <a href="#" class="link example__link"><img data-action="save" data-example="example" id="idImage"
+                class="example__image" src="./images/box1.jpg" alt="img" width="370" />
+              <h3 class="example__title">APLICACIONES DE ESCRITORIO</h3>
+            </a>
+          </li>
+          <li class="example__item item">
+            <a href="#" class="link example__link"><img class="example__image" src="./images/box2.jpg" alt="img"
+                width="370" />
+              <h3 class="example__title"> APLICACIONES DE ESCRITORIO</h3>
+            </a>
+          </li>
+          <li class="example__item item">
+            <a href="#" class="link example__link"><img class="example__image" src="./images/box3.jpg" alt="img"
+                width="370" />
+              <h3 class="example__title"> APLICACIONES DE ESCRITORIO</h3>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Nuestro Equipo</h2>
+        <ul class="list members">
+          <li class="members__item">
+            <img class="members__photo" src="./images/team1.jpg" alt="img" width="270" />
+            <div class="members__content">
+              <h3 class="members__title">Andrés Cubo</h3>
+              <p class="members__position">Product Designer</p>
+              <ul class="list members__contacts">
+                <li class="members__contact__item">
+                  <a href="#" class="members__contact__link">
+                    <svg class="members__contact__icon" width="20px" height="20px">
+                      <use href="./images/icons.svg#instagram"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li class="members__contact__item">
+                  <a href="#" class="members__contact__link">
+                    <svg class="members__contact__icon" width="20px" height="20px">
+                      <use href="./images/icons.svg#twitter"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li class="members__contact__item">
+                  <a href="#" class="members__contact__link">
+                    <svg class="members__contact__icon" width="20px" height="20px">
+                      <use href="./images/icons.svg#facebook"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li class="members__contact__item">
+                  <a href="#" class="members__contact__link">
+                    <svg class="members__contact__icon" width="20px" height="20px">
+                      <use href="./images/icons.svg#linkedin"></use>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="members__item">
+            <img class="members__photo" src="./images/team2.jpg" alt="img" width="270" />
+            <div class="members__content">
+              <h3 class="members__title">Andrés Cubo</h3>
+              <p class="members__position">Product Designer</p>
+              <ul class="list members__contacts">
+                <li class="members__contact__item">
+                  <a href="#" class="members__contact__link">
+                    <svg class="members__contact__icon" width="20px" height="20px">
+                      <use href="./images/icons.svg#instagram"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li class="members__contact__item">
+                  <a href="#" class="members__contact__link">
+                    <svg class="members__contact__icon" width="20px" height="20px">
+                      <use href="./images/icons.svg#twitter"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li class="members__contact__item">
+                  <a href="#" class="members__contact__link">
+                    <svg class="members__contact__icon" width="20px" height="20px">
+                      <use href="./images/icons.svg#facebook"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li class="members__contact__item">
+                  <a href="#" class="members__contact__link">
+                    <svg class="members__contact__icon" width="20px" height="20px">
+                      <use href="./images/icons.svg#linkedin"></use>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="members__item">
+            <img class="members__photo" src="./images/team3.jpg" alt="img" width="270" />
+            <div class="members__content">
+              <h3 class="members__title">Andrés Cubo</h3>
+              <p class="members__position">Product Designer</p>
+              <ul class="list members__contacts">
+                <li class="members__contact__item">
+                  <a href="#" class="members__contact__link">
+                    <svg class="members__contact__icon" width="20px" height="20px">
+                      <use href="./images/icons.svg#instagram"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li class="members__contact__item">
+                  <a href="#" class="members__contact__link">
+                    <svg class="members__contact__icon" width="20px" height="20px">
+                      <use href="./images/icons.svg#twitter"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li class="members__contact__item">
+                  <a href="#" class="members__contact__link">
+                    <svg class="members__contact__icon" width="20px" height="20px">
+                      <use href="./images/icons.svg#facebook"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li class="members__contact__item">
+                  <a href="#" class="members__contact__link">
+                    <svg class="members__contact__icon" width="20px" height="20px">
+                      <use href="./images/icons.svg#linkedin"></use>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="members__item">
+            <img class="members__photo" src="./images/team4.jpg" alt="img" width="270" />
+            <div class="members__content">
+              <h3 class="members__title">Andrés Cubo</h3>
+              <p class="members__position">Product Designer</p>
+              <ul class="list members__contacts">
+                <li class="members__contact__item">
+                  <a href="#" class="members__contact__link">
+                    <svg class="members__contact__icon" width="20px" height="20px">
+                      <use href="./images/icons.svg#instagram"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li class="members__contact__item">
+                  <a href="#" class="members__contact__link">
+                    <svg class="members__contact__icon" width="20px" height="20px">
+                      <use href="./images/icons.svg#twitter"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li class="members__contact__item">
+                  <a href="#" class="members__contact__link">
+                    <svg class="members__contact__icon" width="20px" height="20px">
+                      <use href="./images/icons.svg#facebook"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li class="members__contact__item">
+                  <a href="#" class="members__contact__link">
+                    <svg class="members__contact__icon" width="20px" height="20px">
+                      <use href="./images/icons.svg#linkedin"></use>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Clientes Regulares</h2>
+        <ul class="clients list">
+          <li class="clients__item">
+            <a href="#" class="clients__link">
+              <svg class="clients__icon" width="106px" height="60px">
+                <use href="./images/icons.svg#client1"></use>
+              </svg></a>
+          </li>
+          <li class="clients__item">
+            <a href="#" class="clients__link">
+              <svg class="clients__icon" width="106px" height="60px">
+                <use href="./images/icons.svg#client2"></use>
+              </svg></a>
+          </li>
+          <li class="clients__item">
+            <a href="#" class="clients__link">
+              <svg class="clients__icon" width="106px" height="60px">
+                <use href="./images/icons.svg#client3"></use>
+              </svg></a>
+          </li>
+          <li class="clients__item">
+            <a href="#" class="clients__link">
+              <svg class="clients__icon" width="106px" height="60px">
+                <use href="./images/icons.svg#client4"></use>
+              </svg></a>
+          </li>
+          <li class="clients__item">
+            <a href="#" class="clients__link">
+              <svg class="clients__icon" width="106px" height="60px">
+                <use href="./images/icons.svg#client5"></use>
+              </svg></a>
+          </li>
+          <li class="clients__item">
+            <a href="#" class="clients__link">
+              <svg class="clients__icon" width="106px" height="60px">
+                <use href="./images/icons.svg#client6"></use>
+              </svg></a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container footer__blocks">
+      <div class="footer__links">
+        <div class="footer__address">
+          <a href="./index.html" class="logo link">Web<span class="logo-light">Studio</span></a>
+          <address>
+            <ul class="address list">
+              <li class="address__item">
+                <a href="" target="_blank" rel="noopener noreferrer nofollow" class="link">Calz. Ticomán 500, Ciudad de
+                  México, CDMX, México</a>
+              </li>
+              <li class="address__item">
+                <a href="mailto:info@devstudio.com" class="link contact">info@devstudio.com</a>
+              </li>
+              <li class="address__item">
+                <a href="tel:+52 55 5529 60001" class="link contact">+52 55 5529 60001</a>
+              </li>
+            </ul>
+          </address>
+        </div>
+        <div class="social">
+          <h2 class="footer-title">Encuentrenos en </h2>
+          <ul class="list footer__social">
+            <li class="footer__social__item">
+              <a href="#" class="studio-contact-link">
+                <svg class="studio-contact-icon" width="20px" height="20px">
+                  <use href="./images/icons.svg#instagram"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="footer__social__item">
+              <a href="#" class="studio-contact-link">
+                <svg class="studio-contact-icon" width="20px" height="20px">
+                  <use href="./images/icons.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="footer__social__item">
+              <a href="#" class="studio-contact-link">
+                <svg class="studio-contact-icon" width="20px" height="20px">
+                  <use href="./images/icons.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="footer__social__item">
+              <a href="#" class="studio-contact-link">
+                <svg class="studio-contact-icon" width="20px" height="20px">
+                  <use href="./images/icons.svg#linkedin"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="mailing">
+        <h2 class="footer__title">SUSCRÍBASE al boletín informativo </h2>
+        <form class="footer__form">
+          <label>
+            <span class="visually-hidden">Correo electrónico</span>
+            <input type="email" name="email" placeholder="E-mail" />
+          </label>
+          <button class="btn footer__button" type="submit">
+            Suscríbase
+            <svg class="footer__form__icon" width="24px" height="24px">
+              <use href="./images/icons.svg#send"></use>
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </footer>
+  <div class="backdrop is-hidden" data-modal>
+    <div class="modal">
+      <form class="form">
+        <p class="form__title">Deje sus datos, nos contactaremos con usted</p>
+        <div class="form__field">
+          <label class="form__field__label" for="name">Nombre</label>
+          <div class="form__field__input">
+            <input class="form__input" type="text" id="name" required minlength="5" maxlength="7" placeholder="Alexis"
+              title="Este elemento es requerido, y debe tener un numero de caracteres entre 5 y 7" />
+            <svg class="form__icon" width="18px" height="18px">
+              <use href="./images/icons.svg#person"></use>
+            </svg>
+          </div>
+        </div>
+        <div class="form__field">
+          <label class="form__label" for="phone">Telefono</label>
+          <div class="form__field__input">
+            <input class="form__input" type="tel" name="phone-number" id="phone" required placeholder="#########" />
+            <svg class="form__icon" width="18px" height="18px">
+              <use href="./images/icons.svg#phone"></use>
+            </svg>
+          </div>
+        </div>
+        <div class="form__field">
+          <label class="form__label" for="email">Email</label>
+          <div class="form__field__input">
+            <input class="form__input" name="email" type="email" id="email" required placeholder="Ejemmplo@gmail.com" />
+            <svg class="form__icon" width="18px" height="18px">
+              <use href="./images/icons.svg#email"></use>
+            </svg>
+          </div>
+        </div>
+        <div class="comment__field">
+          <label class="form__label" for="comment">Comentarios</label>
+          <textarea class="form__input" name="comment" id="comment" placeholder="Introduzca el texto"
+            required></textarea>
+        </div>
+        <div class="checkbox__field" id="idCheckboxToFind">
+          <label class="check">
+            <input class="checkbox__input" type="checkbox" name="policy" value="accept" id="idCheck" />
+            <span class="checkbox">
+              <svg class="check__icon" width="16px" height="15px">
+                <use href="./images/icons.svg#check"></use>
+              </svg>
+            </span>
+            <span class="form__policy">Estoy de acuerdo con el boletín informativo y acepto los Términos y
+              Condiciones</span>
+          </label>
+        </div>
+        <button class="btn form__button m-auto" type="submit">Enviar</button>
+      </form>
+      <button class="modal__close__button" data-modal-close>
+        <svg class="close__icon" width="18px" height="18px">
+          <use href="./images/icons.svg#close"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="canvas" id="idCanvas">
+    <p>Texto existente</p>
+  </div>
+  <script defer src="./js/modal.js"></script>
+
+  <script defer>
+    //Selectores
+    // let htmlBody = document.body;
+    // console.log("parentNode", htmlBody.parentNode)
+    // console.log("children", htmlBody.children)
+    // console.log("firstChild", htmlBody.firstChild)
+    // console.log("firstElementChild", htmlBody.firstElementChild)
+    // console.log("lastChild", htmlBody.lastChild)
+    // console.log("lastElementChild", htmlBody.lastElementChild)
+    // console.log("previousSibling", htmlBody.previousSibling)
+    // console.log("previousElementSibling", htmlBody.previousElementSibling)
+    // console.log("nextSibling", htmlBody.nextSibling)
+    // console.log("nextElementSibling", htmlBody.nextElementSibling)
+
+    // let checbox = document.querySelector("#idCheckboxToFind");
+    // console.log("checbox")
+    // let checboxid = document.getElementById("idCheckboxToFind");
+    // console.log(checboxid)
+    // console.log(checbox)
+    // let formClass = document.querySelectorAll(".form__field");
+    // console.log("formClass")
+    // console.log(formClass)
+
+
+    let checboxFather = document.querySelector("#idCheckboxToFind");
+    console.log("checboxFather");
+    console.log(checboxFather.style.backgroundColor = "red");
+
+    let checboxIcon = document.querySelector("#idCheck");
+    console.log("checboxIcon");
+    console.log(checboxIcon.value);
+    let title = document.querySelector("#idMainTitle");
+    console.log(title.textContent)
+    // title.classList.remove("hero__title")
+    title.classList.add("estaEsUnaClaseNueva")
+
+    let img = document.querySelector("#idImage");
+    console.log(img.attributes)
+    console.log(img.hasAttribute("src"));
+    console.log(img.hasAttribute("src2"));
+    console.log(img.getAttribute("src"));
+    // console.log(img.setAttribute("src", "Esta es la imagen que cva a faallar por que no tiene un url valida"));
+    // console.log(img.removeAttribute("src"));
+    console.log(img.dataset.action)
+    console.log(img.dataset.example)
+
+
+    //Creacion
+    let h2Creado = document.createElement("h2")
+    h2Creado.textContent = "Este es contenido agregado desde js"
+    let h2Creado2 = document.createElement("h2")
+    h2Creado2.textContent = "Este es contenido agregado desde js 2"
+    console.log(h2Creado)
+    let canvas = document.querySelector("#idCanvas")
+    canvas.append(h2Creado, h2Creado2)
+
+    // canvas.prepend(h2Creado)
+    // canvas.after(h2Creado)
+    // canvas.before(h2Creado)
+    // canvas.remove()
+
+    console.log("canvas.innerHTML")
+    console.log(canvas.innerHTML)
+    console.log("canvas.textContent")
+    console.log(canvas.textContent)
+
+    canvas.insertAdjacentHTML("beforebegin", "<h1>Este es un h1 desde insertadjacent</h1>")
+// "beforebegin"
+// "afterbegin"
+// "beforeend"
+// "afterend"
+
+  </script>
+</body>
+
+</html>

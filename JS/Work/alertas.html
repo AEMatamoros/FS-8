@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Generador de Alertas</title>
+  <style>
+    .alert-container {
+      text-align: center;
+    }
+
+    .alert-container button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .alert {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #f2f2f2;
+      border: 1px solid #ccc;
+      padding: 20px;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .close {
+      color: #888;
+      float: right;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .success {
+      background-color: rgb(112, 189, 112);
+    }
+
+    .warning {
+      background-color: rgb(188, 188, 99);
+    }
+
+    .error {
+      background-color: rgb(193, 90, 90);
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Generador de Alertas</h1>
+
+  <div class="alert-container">
+    <button id="alertSuccess">Mostrar Alerta de Éxito</button>
+    <button id="alertWarning">Mostrar Alerta de Advertencia</button>
+    <button id="alertError">Mostrar Alerta de Error</button>
+  </div>
+
+  <div id="alert" class="alert">
+    <span class="close" id="close">&times;</span>
+    <h2 id="alert-title">Titulo</h2>
+    <p id="alert-message">asdasasd</p>
+  </div>
+
+  <script>
+
+    let alertBox = document.getElementById("alert");
+    let alertClose = document.getElementById("close");
+    let alertSuccess = document.querySelector("#alertSuccess");
+    let alertWarning = document.getElementById("alertWarning");
+    let alertError = document.querySelectorAll("#alertError")[0];
+
+    alertSuccess.addEventListener('click', (event) => {
+      showMessage(event.target.id)
+    })
+
+    alertWarning.addEventListener('click', (event) => {
+      showMessage(event.target.id)
+    })
+
+    alertError.addEventListener('click', (patito) => {
+      showMessage(patito.target.id)
+    })
+
+    alertClose.addEventListener('mouseup', () => {
+      alertBox.style.display = "none"
+    })
+
+    function showMessage(alertType) {
+
+      let title = alertBox.querySelector("#alert-title")
+      let message = alertBox.querySelector("#alert-message")
+      alertBox.classList.remove("success", "warning", "error")
+
+      switch (alertType) {
+        case "alertSuccess":
+          alertBox.classList.add("success")
+          title.textContent = "Exitoso"
+          message.textContent = "Esta es una alerta exitosa"
+          break;
+        case "alertWarning":
+          alertBox.classList.add("warning")
+          title.textContent = "Advertencia"
+          message.textContent = "Esto es una advertencia"
+          break;
+        case "alertError":
+          alertBox.classList.add("error")
+          title.textContent = "Error"
+          message.textContent = "Este es un error"
+          break;
+        default:
+          break;
+      }
+
+      alertBox.style.display = "block"
+    }
+
+
+  </script>
+</body>
+
+</html>

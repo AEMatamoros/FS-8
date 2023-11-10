@@ -1,0 +1,126 @@
+/* Normalice */
+*{
+    box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,h6,p{
+    margin: 0;
+}
+
+html{
+    box-sizing: border-box;
+}
+
+*,*::after,*::before{
+    box-sizing: inherit;
+}
+
+
+address{
+    font-style: normal;
+}
+
+.link{
+    text-decoration: none;
+    color: inherit;
+}
+
+.list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+section{
+    padding: 32px;
+}
+
+.custom-navbar{
+    padding: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-links{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.custom-main{
+    display: flex;
+}
+
+.custom-aside{
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.products-section{
+    width: 90%;
+}
+
+.card{
+    min-width: 320px;
+    max-width: 320px;
+}
+
+.products-carrousel{
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+.p-1{
+    padding: 16px;
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+}
+
+.navigation-container{
+    padding: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-footer{
+    display: flex;
+}
+.footer-text{
+    width: 50%
+}
+.footer-contact{
+    width: 50%;
+}
+
+/* Custom */
+/* Triggered when the user clicks or taps on an element or selects it with the keyboard's Tab key. */
+.red-input:focus {
+    background: red;
+    color: yellow;
+}
+
+form {
+    border: 1px solid;
+    color: gray;
+    padding: 4px;
+}
+
+form:focus-within {
+    background: #ff8;
+    color: black;
+}
+
+.button:focus-visible {
+    background: red;
+    color: yellow;
+}

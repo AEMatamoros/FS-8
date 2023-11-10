@@ -1,0 +1,150 @@
+/* Normalice */
+*{
+    box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,h6,p{
+    margin: 0;
+}
+
+html{
+    box-sizing: border-box;
+}
+
+*,*::after,*::before{
+    box-sizing: inherit;
+}
+
+
+address{
+    font-style: normal;
+}
+
+.link{
+    text-decoration: none;
+    color: inherit;
+}
+
+.list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* transition-property: <propiedad>
+transition-duration: <tiempo>
+transition-timing-function: <función de distribución de tiempo>
+transition-delay: <retraso> */
+
+p{
+    color: green;
+    background-color: rgb(160, 160, 160);
+    /* transition-property: color;
+    transition-duration:.3s;
+    transition-delay:.2s;
+    transition-timing-function:cubic-bezier(0.1, 0.7, 0.1, 1) ; */
+    transition: color .3s ease-in .1s, background-color .5s ease-in .2s;
+}
+
+p:hover{
+    color: red;
+    background-color: blanchedalmond;
+}
+
+.box{
+    width: 200px;
+    height: 200px;
+    background-color: brown;
+    transition: transform .3s ease-in;
+    transform: translateY(5px);
+}
+
+.box:hover{
+    /* transform: translate(100px, 100px); */
+    transform: translateX(100px);
+    transform: translateY(-100px) translateX(100px);
+}
+
+.box2{
+    width: 200px;
+    height: 200px;
+    background-color: green;
+    transition: transform .3s ease-in;
+    transform-origin: bottom left;
+
+}
+
+.box2:hover{
+    transform: rotate(45deg);
+}
+
+.box3{
+    width: 200px;
+    height: 200px;
+    background-color: rgb(126, 0, 128);
+    transition: transform .3s ease-in;
+}
+
+.box3:hover{
+    /* transform: scaleX(2);
+    transform: scaleY(2); */
+    transform: scale(.5);
+
+}
+
+.box4{
+    width: 200px;
+    height: 200px;
+    background-color: rgb(71, 122, 140);
+    transition: transform .3s ease-in;
+    margin-top: 50px;
+}
+
+.box4:hover{
+    transform: skew(20deg, 25deg);
+    transform: skewX(20deg);
+    transform: skewY(20deg);
+}
+
+.box5{
+    width: 200px;
+    height: 200px;
+    background-color: rgb(99, 140, 71);
+    margin-top: 50px;
+    perspective: 100px;
+}
+
+
+.box6{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin-top: 50px;
+    animation-name: box-decoration;
+    background-color: rgb(140, 137, 71);
+    animation-duration :3s;
+    animation-delay: .1s;
+    animation-iteration-count: infinite;
+    animation-direction:normal;
+    animation-timing-function:cubic-bezier(.1,.7,.1,.1);
+    animation-fill-mode :backwards;
+
+}
+
+@keyframes box-decoration{
+    0%{
+        left: 0;
+        top: 0px;
+        background-color: rgb(140, 80, 71);
+    }
+    75%{
+        left: 200px;
+        top: 0px;
+        background-color: rgb(71, 82, 140);
+    }
+    100%{
+        left: 500px;
+        /* top: 300px; */
+        background-color: rgb(84, 140, 71);
+    }
+}

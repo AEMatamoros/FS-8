@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Galería Sencilla</title>
+  <style>
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 10px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+    }
+
+    .centrar {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 6rem;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Galería</h1>
+
+  <ul class="gallery">
+    <li><img class="galleryImg" src="https://picsum.photos/seed/picsum0/200/300" alt="Imagen 1"></li>
+    <li><img class="galleryImg" src="https://picsum.photos/seed/picsum1/200/300" alt="Imagen 2"></li>
+    <li><img class="galleryImg" src="https://picsum.photos/seed/picsum2/200/300" alt="Imagen 3"></li>
+    <li><img class="galleryImg" src="https://picsum.photos/seed/picsum3/200/300" alt="Imagen 4"></li>
+    <li><img class="galleryImg" src="https://picsum.photos/seed/picsum4/200/300" alt="Imagen 5"></li>
+    <li class="centrar" id="counterContainer">
+      <p>El numero de imagenes es:</p>
+      <h1 id="counter">1</h1>
+    </li>
+
+  </ul>
+  <script>
+    // let images = document.querySelectorAll(".galleryImg");
+    // let images = document.getElementsByTagName("img")
+    let images = document.getElementsByClassName("galleryImg");
+    let counter = document.getElementById("counter");
+    counter.innerText = images.length
+
+    // For each no se puede utilizar con un listado de nodos
+    // images.forEach(element => {
+    //   console.log(element)
+    // });
+
+    for (let image of images) {
+      image.addEventListener("click", (e) => {
+        let randomValue = Math.random() * 10;
+        e.target.src = `https://picsum.photos/seed/picxel${randomValue}/200/300`
+
+      })
+
+      image.addEventListener("mouseup", (e) => {
+        // e.target.style.transform = "scale(1.1)"
+      })
+    }
+
+
+
+    // document.closest("#id") Obtiene el padre mas proximo
+  </script>
+</body>
+
+</html>

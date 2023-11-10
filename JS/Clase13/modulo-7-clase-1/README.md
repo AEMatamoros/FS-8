@@ -1,0 +1,3 @@
+- Propagación de eventos
+- Actos emergentes
+- Delegación de eventos

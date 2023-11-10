@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title>Document</title>
+  <!-- Normalize -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css" />
+  <!-- Externo -->
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body>
+  <form name="formularioDePrueba" autocomplete="on" novalidate>
+
+    <label for="name">Nombre</label>
+    <input type="text" name="name" id="name" autofocus placeholder="Escribe tu nombre" value="Alexis"><br>
+    <label for="apellido">Apellido </label>
+    <input type="text" name="apellido" id="apellido" placeholder="Matamoros"><br>
+    <label for="edad">Edad</label>
+    <input type="number" name="edad" id="edad" value="5" min="-3" max="10" step="2"><br>
+    <label>
+      Age
+      <input type="range" name="age" value="100" min="18" max="120" step="2" /><br>
+    </label>
+
+    <!-- value = Valor Actua 
+    min = Valor Minim
+    max = Valor Maximo
+    step = Variable de cambio -->
+    <label>
+      Date
+      <input type="date" min="2020-01-01" max="2020-05-01" /><br>
+    </label>
+    <label>
+      Time
+      <input type="time" /><br>
+    </label>
+    <label>
+      Date and time
+      <input type="datetime-local" min="1920-01-01T00:00" max="2020-01-01T00:00" /><br>
+    </label>
+
+
+
+    <!-- <input type="button"><br>
+    <input type="checkbox"><br>
+    <input type="color"><br>
+    <input type="date"><br>
+    <input type="datetime-local"><br>
+    <input type="email"><br>
+    <input type="file"><br>
+    <input type="hidden"><br>
+    <input type="image"><br>
+    <input type="month"><br>
+    <input type="number"><br>
+    <input type="password"><br>
+    <input type="radio"><br>
+    <input type="range"><br>
+    <input type="reset"><br>
+    <input type="search"><br>
+    <input type="submit"><br>
+    <input type="tel"><br>
+    <input type="text"><br>
+    <input type="time"><br>
+    <input type="url"><br>
+    <input type="week"> --><br>
+    <p>Choose Your Gender:</p>
+    <label>
+      <input type="radio" name="gender" value="M" checked />
+      Male
+    </label>
+    <label>
+      <input type="radio" name="gender" value="F" />
+      Female
+    </label>
+    <p>Choose Your Products:</p>
+    <label>
+      <input type="checkbox" name="Produts" value="Home" checked />
+      Martillo
+    </label>
+    <label>
+      <input type="checkbox" name="Produts" value="Garden" />
+      Atornillador
+    </label>
+    <p>Text Area</p>
+    <textarea name="descripcion" id="descripcion" style="resize: vertical;" cols="10" rows="10"
+      placeholder="Descripcion" maxlength="20" required maxLength="20">
+    </textarea>
+    <p>Select</p>
+    <select name="cars" id="cars">
+      <optgroup label="Swedish Cars">
+        <option value="mercedes" disabled selected>
+          --Seleccione un valor--</option>
+        <option value="mercedes" disabled>
+          Disabled</option>
+        <option value="mercedes">
+          Mercedes</option>
+        <option value="audi">
+          Audi</option>
+      </optgroup>
+      <optgroup label="USA Cars">
+        <option value="mercedes" disabled selected>
+          --Seleccione un valor--</option>
+        <option value="mercedes" disabled>
+          Disabled</option>
+        <option value="mercedes">
+          Mercedes</option>
+        <option value="audi">
+          Audi</option>
+      </optgroup>
+    </select>
+
+    <p for="browser">Choose your browser from the list:</p>
+    <input list="browsers" name="browser" id="browser">
+    <datalist id="browsers">
+      <option value="Edge">
+      <option value="Firefox">
+      <option value="Chrome">
+      <option value="Opera">
+      <option value="Safari">
+      <option value="Edge">
+      <option value="Firefox">
+      <option value="Chrome">
+      <option value="Opera">
+      <option value="Safari">
+      <option value="Edge">
+      <option value="Firefox">
+      <option value="Chrome">
+      <option value="Opera">
+      <option value="Safari">
+      <option value="Edge">
+      <option value="Firefox">
+      <option value="Chrome">
+      <option value="Opera">
+      <option value="Safari">
+
+      <option value="Edge">
+      <option value="Firefox">
+      <option value="Chrome">
+      <option value="Opera">
+      <option value="Safari">
+    </datalist>
+
+
+    <fieldset>
+      <legend>Personalia:</legend>
+      <label for="fname">First name:</label>
+      <input type="text" id="fname" name="fname"><br><br>
+      <label for="lname">Last name:</label>
+      <input type="text" id="lname" name="lname"><br><br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email"><br><br>
+      <label for="birthday">Birthday:</label>
+      <input type="date" id="birthday" name="birthday"><br><br>
+      <input type="submit" value="Submit">
+    </fieldset>
+
+
+
+    <button type="submit">Submit</button>
+
+  </form>
+
+
+</body>
+
+</html>

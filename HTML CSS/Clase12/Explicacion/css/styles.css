@@ -1,0 +1,86 @@
+.form-input:disabled{
+    background-color: rgb(150, 97, 97);
+}
+
+.form-input:checked{
+    background-color: rgb(97, 150, 101);
+}
+
+.focus-whithin:focus-within{
+    background-color: red;
+}
+
+.form-input:in-range{
+    background-color: rgb(133, 97, 150);
+}
+
+.form-input:out-of-range{
+    background-color: rgb(150, 138, 97);
+}
+
+.form-input:valid{
+    border: 3px solid blue;
+}
+
+.form-input:invalid{
+    border: 3px solid rgb(255, 0, 0);
+    
+}
+
+.custom-input:focus-visible{
+    outline: none;
+}
+
+.custom-input:placeholder-shown{
+    border-color: yellow;
+}
+
+.custom-input:not(:placeholder-shown){
+    border-color: rgb(0, 60, 255);
+}
+
+.custom-input:required:valid:not(:placeholder-shown){
+    border-color: rgb(0, 255, 34);
+}
+
+.custom-input:required:invalid:not(:placeholder-shown){
+    border-color: rgb(255, 17, 0);
+}
+
+.custom-input:required:invalid:not(:placeholder-shown) + .error-msg{
+    display: inline-block;
+}
+
+.error-msg{
+    display: none;
+    color: red;
+}
+
+.form-field{
+    position: relative;
+}
+.form-field-icon{
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: fill .2s ease-in;;
+}
+
+.form-field-input{
+    padding: 11px 12px 13px 36px;
+    transition: border-color .2s ease-in;
+}
+
+.form-field-input:focus-visible{
+    outline: none;
+    border-color: rgb(87, 87, 237);
+}
+
+.form-field-input:focus-visible + svg{
+    fill:  rgb(87, 87, 237);
+}
+
+.form-field-input::placeholder{
+    color: green;
+}

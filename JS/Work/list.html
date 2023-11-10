@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Listado de Productos</title>
+  <style>
+    .product-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .product-item {
+      text-align: center;
+      margin: 10px;
+      width: 300px;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    .product-item img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .product-item h2 {
+      margin-bottom: 5px;
+    }
+
+    .product-item p {
+      margin-bottom: 10px;
+    }
+
+    .product-item button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    .product-item button:hover {
+      background-color: #45a049;
+    }
+
+    .product-item.selected {
+      background-color: teal;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Listado de Productos</h1>
+
+  <!-- Cambiar color del li Seleccionado -->
+  <ul class="product-list" id="product-list">
+
+  </ul>
+  <div class="data">
+
+  </div>
+  <script>
+
+    let productNumber = Math.max(1, parseInt(Math.random() * (10 - 2)));
+    let productList = document.getElementById("product-list")
+
+    for (let index = 0; index < productNumber; index++) {
+      var randomColor = Math.floor(Math.random() * 16777215).toString(16);
+      productList.innerHTML += `
+          <li class="product-item" style="background-color:#${randomColor}">
+            <h2>Producto ${index + 1}</h2>
+            <p>Precio: $10</p>
+            <button>Seleccionar</button>
+          </li>`
+    }
+
+  </script>
+</body>
+
+</html>

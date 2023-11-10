@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #1661b0;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+
+      .delete {
+        padding: 10px 20px;
+        background-color: #a72513;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+
+      .update {
+        padding: 10px 20px;
+        background-color: #49a713;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+
+      #canvas h3 {
+        color: #333;
+        font-size: 20px;
+        margin: 0;
+        padding: 10px 0;
+      }
+
+      #canvas p {
+        color: #555;
+        font-size: 16px;
+        margin: 0;
+        padding: 5px 0;
+      }
+
+      hr {
+        border: none;
+        border-top: 1px solid #ccc;
+        margin: 20px 0;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      input[type="text"] {
+        padding: 5px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .msg {
+        color: green;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .perPageSelect {
+        padding: 10px 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <button id="idSearch">Get more</button>
+      <select name="perPage" id="perPage" class="perPageSelect">
+        <option value="1" selected>1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+      <hr />
+      <label>
+        Titulo
+        <input type="text" id="idTitle" />
+      </label>
+      <label>
+        Descripcion
+        <input type="text" id="idBody" />
+      </label>
+      <p class="hidden" id="loader">Cargando....</p>
+      <p class="hidden" id="error">Err..</p>
+      <p class="msg" id="msg"></p>
+      <button id="idCreate">Create a Record</button>
+      <hr />
+      <div id="canvas">
+        <!-- Data will be rendered here dynamically -->
+      </div>
+    </div>
+    <script>
+      //READ
+      let canvas = document.getElementById("canvas");
+
+      //CREATE
+      let title = document.getElementById("idBody");
+      let body = document.getElementById("idTitle");
+
+      //MSG
+      let loader = document.getElementById("loader");
+      let errorMsg = document.getElementById("error");
+
+      //Paginacion
+      let page = 1;
+      let perPageVar = 1;
+
+      //Event listerners para el GET
+      //Select
+      document.getElementById("perPage").addEventListener("change", (e) => {
+        page = 1;
+        perPageVar = e.target.value;
+        getData(e.target.value, true);
+      });
+
+      //Boton
+      document.getElementById("idSearch").addEventListener("click", () => {
+        getData(perPageVar);
+      });
+      //Cargar la pagina
+      getData(perPageVar);
+
+      //Limpia el local storage cada vez que se carga la pagina
+      window.addEventListener("load", () => {
+        localStorage.clear();
+      });
+      //Event Listeners para el POST
+      //Boton de Crear
+      document.getElementById("idCreate").addEventListener("click", () => {
+        createRecord();
+      });
+
+      //Event Listeners para el Delete y Actualizar
+      //Boton de eliminar y actualizar
+      canvas.addEventListener("click", (e) => {
+        if (e.target.nodeName !== "BUTTON") {
+          return;
+        }
+        if (e.target.dataset.delete) {
+          deleteData(e);
+        }
+        if (e.target.dataset.update) {
+          updateData(e);
+        }
+      });
+
+      //CRUD
+      //Read
+      async function getData(perPage, changedPag) {
+        loader.classList.remove("hidden");
+        let params = new URLSearchParams({
+          perPage,
+          page,
+        });
+        //Asincrono
+        // fetch(`http://localhost:8000/paginated?${params}`)
+        //   .then((response) => response.json())
+        //   .then((data) => {
+        //     if (!errorMsg.classList.contains("hidden")) {
+        //       errorMsg.classList.add("hidden");
+        //     }
+        //     if (localStorage.getItem("listValues") == null || changedPag) {
+        //       localStorage.setItem("listValues", JSON.stringify(data.results));
+        //     } else {
+        //       let oldValues = JSON.parse(localStorage.getItem("listValues"));
+        //       localStorage.setItem(
+        //         "listValues",
+        //         JSON.stringify([...oldValues, ...data.results])
+        //       );
+        //     }
+        //     renderData();
+        //     page += 1;
+        //   })
+        //   .catch((err) => {
+        //     errorMsg.classList.remove("hidden");
+        //   })
+        //   .finally(() => {
+        //     loader.classList.add("hidden");
+        //   });
+
+        //Sincrono
+        try {
+          let response = await fetch(
+            `http://localhost:8000/paginated?${params}`
+          );
+          let data = await response.json();
+          if (!errorMsg.classList.contains("hidden")) {
+            errorMsg.classList.add("hidden");
+          }
+          if (localStorage.getItem("listValues") == null || changedPag) {
+            localStorage.setItem("listValues", JSON.stringify(data.results));
+          } else {
+            let oldValues = JSON.parse(localStorage.getItem("listValues"));
+            localStorage.setItem(
+              "listValues",
+              JSON.stringify([...oldValues, ...data.results])
+            );
+          }
+          renderData();
+          page += 1;
+        } catch (error) {
+          errorMsg.classList.remove("hidden");
+        } finally {
+          loader.classList.add("hidden");
+        }
+      }
+
+      //Create
+      async function createRecord() {
+        loader.classList.remove("hidden");
+        let options = {
+          method: "POST",
+          body: JSON.stringify({ title: title.value, body: body.value }),
+          headers: {
+            "Content-Type": "application/json; charset=UTF-8",
+          },
+        };
+        // Asincrono
+        // fetch(`http://localhost:8000`, options)
+        //   .then((response) => {
+        //     if (!response.ok) {
+        //       alert("Ocurrion un error");
+        //     }
+        //     return response.json();
+        //   })
+        //   .then((data) => {
+        //     let oldValues = [];
+        //     if (localStorage.getItem("listValues") != null) {
+        //       oldValues = JSON.parse(localStorage.getItem("listValues"));
+        //     }
+        //     localStorage.setItem(
+        //       "listValues",
+        //       JSON.stringify([...oldValues, data.obj])
+        //     );
+        //     renderData();
+        //   })
+        //   .catch((err) => {
+        //     alert("Ocurrion un error");
+        //     //Mensaje Error
+        //   })
+        //   .finally(() => {
+        //     loader.classList.add("hidden");
+        //   });
+
+        // Sincrono
+        try {
+          let response = await fetch(`http://localhost:8000`, options);
+          if (!response.ok) {
+            alert("Ocurrion un error");
+          }
+          let data = await response.json();
+          let oldValues = [];
+          if (localStorage.getItem("listValues") != null) {
+            oldValues = JSON.parse(localStorage.getItem("listValues"));
+          }
+          localStorage.setItem(
+            "listValues",
+            JSON.stringify([...oldValues, data.obj])
+          );
+          renderData();
+        } catch (error) {
+          alert("Ocurrion un error");
+        } finally {
+          loader.classList.add("hidden");
+        }
+      }
+
+      async function updateData(e) {
+        // Asincrono
+        // fetch(`http://localhost:8000/${e.target.id}`, {
+        //   method: "PUT",
+        //   body: JSON.stringify({ title: title.value, body: body.value }),
+        // })
+        //   .then((response) => response.json())
+        //   .then((data) => {
+        //     alert("Se ha actualizado");
+        //     if (localStorage.getItem("listValues") != null) {
+        //       let oldValues = JSON.parse(localStorage.getItem("listValues"));
+        //       oldValues = oldValues.map((item) => {
+        //         if (item.id == parseInt(e.target.id)) {
+        //           item = {
+        //             id: item.id,
+        //             title: title.value,
+        //             body: body.value,
+        //           };
+        //         }
+        //         return item;
+        //       });
+        //       localStorage.setItem("listValues", JSON.stringify(oldValues));
+        //     }
+        //     renderData();
+        //   });
+
+        // Sincrono
+        try {
+          loader.classList.remove("hidden");
+          let response = await fetch(`http://localhost:8000/${e.target.id}`, {
+            method: "PUT",
+            body: JSON.stringify({ title: title.value, body: body.value }),
+          });
+          let data = await response.json();
+          alert("Se ha actualizado");
+          if (localStorage.getItem("listValues") != null) {
+            let oldValues = JSON.parse(localStorage.getItem("listValues"));
+            oldValues = oldValues.map((item) => {
+              if (item.id == parseInt(e.target.id)) {
+                item = {
+                  id: item.id,
+                  title: title.value,
+                  body: body.value,
+                };
+              }
+              return item;
+            });
+            localStorage.setItem("listValues", JSON.stringify(oldValues));
+          }
+          renderData();
+        } catch (error) {
+          alert("error");
+        } finally {
+          loader.classList.add("hidden");
+        }
+      }
+
+      async function deleteData(e) {
+        try {
+          loader.classList.remove("hidden");
+          let response = await fetch(`http://localhost:8000/${e.target.id}`, {
+            method: "DELETE",
+          });
+          let data = await response.json();
+          alert("Se ha eliminado el registro");
+          if (localStorage.getItem("listValues") != null) {
+            let oldValues = JSON.parse(localStorage.getItem("listValues"));
+            localStorage.setItem(
+              "listValues",
+              JSON.stringify(
+                oldValues.filter((item) => item.id !== parseInt(e.target.id))
+              )
+            );
+          }
+          renderData();
+        } catch (error) {
+          alert("Error");
+        } finally {
+          loader.classList.add("hidden");
+        }
+
+        //Asincrono
+        // fetch(`http://localhost:8000/${e.target.id}`, { method: "DELETE" })
+        //   .then((response) => response.json())
+        //   .then((data) => {
+        //     alert("Se ha eliminado el registro");
+        //     if (localStorage.getItem("listValues") != null) {
+        //       let oldValues = JSON.parse(localStorage.getItem("listValues"));
+        //       localStorage.setItem(
+        //         "listValues",
+        //         JSON.stringify(
+        //           oldValues.filter((item) => item.id !== parseInt(e.target.id))
+        //         )
+        //       );
+        //     }
+        //     renderData();
+        //   });
+      }
+
+      function renderData() {
+        canvas.innerHTML = "";
+        let toRenderData = JSON.parse(localStorage.getItem("listValues"))
+          .map((item) => {
+            return `
+                        <h3>
+                            ${item.title}
+                        </h3>
+                        <p>
+                            ${item.body}
+                        </p>
+                        <button class="update" id="${item.id}" data-update="true">Update</button>
+                        <button class="delete" id="${item.id}" data-delete="true">Delete</button>`;
+          })
+          .join(" ");
+        if (page === 1) {
+          canvas.innerHTML = toRenderData;
+        } else {
+          canvas.innerHTML += toRenderData;
+        }
+      }
+    </script>
+  </body>
+</html>
+
+<!-- let objeto1 = {
+prop: 1, poo: 2, as: 3, asd: 4, asd: 5
+}
+let objeto1Strig = JSON.stringify(objeto1)
+console.log(JSON.parse(objeto1Strig)) -->
+
+<!-- const rawResponse = await fetch('https://httpbin.org/post', {
+    method: 'POST',
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ a: 1, b: 'Textual content' })
+});
+const content = await rawResponse.json();
+
+console.log(content); -->
+<!-- 
+   async function nombreFuncion(){
+   let respuesta = await promesa
+} -->

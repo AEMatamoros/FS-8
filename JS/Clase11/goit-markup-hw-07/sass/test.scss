@@ -1,0 +1,17 @@
+.caresteristics{
+    
+    .caracteristics__list {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        gap: 30px;
+        &:hover {
+            background-color: #188ce8;
+        }
+
+    }
+    .caracteristics__item{
+
+        
+    }
+}

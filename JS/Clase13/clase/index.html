@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .delete-btn {
+            margin-left: 10px;
+        }
+
+        /* Estilos para la lista de tareas */
+        #task-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        /* Estilos para cada elemento de tarea */
+        li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        /* Estilos para la casilla de verificación */
+        .task-checkbox {
+            margin-right: 10px;
+        }
+
+        /* Estilos para las tareas completadas */
+        .completed {
+            text-decoration: line-through;
+            color: #888;
+        }
+
+        /* Estilos para el botón "Eliminar" */
+        .delete-btn {
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="parent">
+        <ul id="task-list">
+            <li>
+                <input type="checkbox" class="task-checkbox" id="task-1">
+                <label for="task-1">Tarea 1</label>
+                <button class="delete-btn">Eliminar</button>
+            </li>
+            <li>
+                <input type="checkbox" class="task-checkbox" id="task-2">
+                <label for="task-2">Tarea 2</label>
+                <button class="delete-btn">Eliminar</button>
+            </li>
+            <!-- Agrega más tareas aquí -->
+        </ul>
+    </div>
+
+
+    <script>
+        // Obtener la lista de tareas
+        const taskList = document.getElementById('task-list');
+
+        // Agregar un evento al hacer clic en la lista de tareas
+        taskList.addEventListener('click', function (event) {
+            // Verificar si el objetivo del evento es una casilla de verificación
+            event.target.parentNode.classList.add("completed")
+            event.stopPropagation()
+        });
+
+        document.querySelector("#parent").addEventListener('click', (e) => {
+            // e.stopPropagation()
+            alert("Alerta que dispara el parent")
+        })
+
+        document.body.addEventListener('click', (e) => {
+            alert("Alerta que dispara el body")
+        })
+    </script>
+</body>
+
+</html>

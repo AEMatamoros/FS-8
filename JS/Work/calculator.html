@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Calculadora Básica</title>
+  <style>
+    .calculator {
+      max-width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f2f2f2;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
+    .calculator input {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 5px;
+    }
+
+    .calculator .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 5px;
+    }
+
+    .calculator button {
+      padding: 10px;
+      font-size: 18px;
+      background-color: #e6e6e6;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+
+    .calculator button:hover {
+      background-color: #d4d4d4;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Calculadora Básica</h1>
+
+  <div class="calculator">
+    <input type="text" id="result" readonly>
+    <div class="buttons">
+      <button id="clear">C</button>
+      <button>/</button>
+      <button>7</button>
+      <button>8</button>
+      <button>9</button>
+      <button>*</button>
+      <button>4</button>
+      <button>5</button>
+      <button>6</button>
+      <button>-</button>
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+      <button>+</button>
+      <button>0</button>
+      <button id="calculate">=</button>
+    </div>
+  </div>
+
+  <script>
+    // utilizar eval para evaluar la expresion
+    // console.log(eval("5+2-3"))
+    let display = ""
+    let buttons = document.querySelectorAll("button")
+    let result = document.getElementById("result")
+    for (let button of buttons) {
+      button.addEventListener('click', (e) => {
+        if (e.target.innerText !== "C" && e.target.innerText !== "=") {
+          display = display + e.target.innerText
+          result.value = display
+        }
+
+
+      })
+    }
+    document.getElementById("clear").addEventListener("click", () => {
+      display = ""
+      result.value = display;
+    })
+    document.getElementById("calculate").addEventListener("click", () => {
+      display = eval(display)
+      result.value = display;
+    })
+  </script>
+</body>
+
+</html>

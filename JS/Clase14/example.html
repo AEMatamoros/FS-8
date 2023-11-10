@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Consumir API de Picsum</title>
+    <style>
+        .image-container {
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            width: 300px;
+            height: auto;
+            margin: 10px;
+        }
+
+        .image {
+            width: 300px;
+            height: 200px;
+            margin-bottom: 20px;
+            background-color: lightgray;
+        }
+
+        .blur-up {
+            filter: blur(5px);
+            transition: filter 500ms;
+        }
+
+        .blur-up.lazyloaded {
+            filter: blur(0);
+        }
+    </style>
+</head>
+
+<body>
+    <button id="call">Get New Image</button>
+    <div class="image-container">
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
+        integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" defer></script>
+    <script>
+
+        function getPicsumImage() {
+            const imageElement = document.createElement('img');
+            imageElement.dataset.src = `https://picsum.photos/seed/picsum${Math.random() * 10}/200/300`;
+            imageElement.classList.add("lazyload", "blur-up", "image");
+            document.querySelector('.image-container').append(imageElement);
+
+        }
+
+        let addImageButtonE = document.getElementById("call");
+
+        // addImageButtonE.addEventListener("click", getPicsumImage);
+        // addImageButtonE.addEventListener("click", _.throttle(getPicsumImage, 1000));
+        addImageButtonE.addEventListener("click", _.debounce(getPicsumImage, 300));
+
+        // Como ejecutar mas de una funcion en un llamado de eveto
+        // addImageButtonE.addEventListener("click", () => {
+        //     getPicsumImage();
+        //     getPicsumImage();
+        //     getPicsumImage();
+        // })
+
+
+    </script>
+</body>
+
+</html>

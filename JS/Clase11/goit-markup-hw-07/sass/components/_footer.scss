@@ -1,0 +1,71 @@
+
+.footer {
+	padding-top: 60px;
+	padding-bottom: 60px;
+	background-color: $dark-bg-color;
+	display: flex;
+	justify-content: space-between;
+	
+}
+.logo {
+		margin-bottom: 20px;
+		padding: 0; 
+}
+.footer__blocks {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+}
+.footer__links {
+	display: flex;
+	gap: 20px;
+	align-items: baseline;
+}
+.footer__social {
+	display: flex;
+	gap: 10px;
+}
+.footer__title {
+	margin-bottom: 20px;
+	color: $white-text-color;
+	font-size: 14px;
+	line-height: 1.14;
+	text-transform: uppercase;
+}
+.footer__social__item {
+	width: 44px;
+	height: 44px;
+}
+.footer__form {
+	display: flex;
+	input {
+		width: 358px;
+		height: 50px;
+		padding: 14px 15px;
+		border: 1px solid rgba(255, 255, 255, 0.3);
+		filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+		border-radius: 4px;
+		background-color: $dark-bg-color;
+		font-size: 16px;
+		line-height: 1.25;
+		display: flex;
+		align-items: center;
+		letter-spacing: 0.03em;
+		color: rgba(255, 255, 255, 0.6);
+	}
+}
+.footer-form {
+	input {
+		&:not(:placeholder-shown) {
+			background-color: $dark-bg-color;
+		}
+	}
+}
+.footer__button {
+	display: flex;
+	gap: 10px;
+	margin-left: 12px;
+}
+.footer__form__icon {
+	fill: currentColor;
+}
