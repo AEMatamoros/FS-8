@@ -15,7 +15,6 @@ const getAllTasks = async (req, res, next) => {
 };
 
 const createTask = async (req, res, next) => {
-  console.log('Creating Task');
   try {
     let newTask = {
       title: req.body.title,
@@ -23,6 +22,7 @@ const createTask = async (req, res, next) => {
       end: req.body.end,
       bgcolor: req.body.bgcolor,
       notes: req.body.notes,
+      photo: req.file ? req.file.filename : '',
     };
     const task = taskModel(newTask);
     let createdTask = await task.save();

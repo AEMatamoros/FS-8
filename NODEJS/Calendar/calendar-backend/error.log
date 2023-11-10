@@ -9,3 +9,4 @@ error: ValidationError: taskModel validation failed: notaextra: Path `notaextra`
     at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
 error: ValidationError: "bgcolor" is required
 error: ValidationError: "bgcolor" is required
+error: undefined

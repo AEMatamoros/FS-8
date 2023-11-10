@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model } = require('mongoose');
 
 const taskSchema = Schema({
   title: {
@@ -24,11 +24,11 @@ const taskSchema = Schema({
     trim: true,
     required: true,
   },
-  notaextra: {
+  photo: {
     type: String,
     trim: true,
     required: true,
   },
 });
 
-module.exports = model("taskModel", taskSchema);
+module.exports = model('taskModel', taskSchema);

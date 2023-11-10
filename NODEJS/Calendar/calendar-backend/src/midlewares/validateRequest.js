@@ -1,4 +1,4 @@
-const Joi = require("joi");
+const Joi = require('joi');
 
 const validationSchema = Joi.object({
   title: Joi.string().required(),
@@ -6,9 +6,11 @@ const validationSchema = Joi.object({
   end: Joi.string().required(),
   bgcolor: Joi.string().required(),
   notes: Joi.string().required(),
+  photo: Joi.string().required(),
 });
 
 function validateModel(req, res, next) {
+  req.body.photo = req.file ? req.file.filename : '';
   const { error } = validationSchema.validate(req.body);
   if (error) {
     next(error);

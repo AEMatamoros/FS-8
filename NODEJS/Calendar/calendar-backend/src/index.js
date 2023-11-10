@@ -1,31 +1,34 @@
-const dotenv = require("dotenv");
+const dotenv = require('dotenv');
 // console.log(typeof process.env.NODE_ENV);
 // console.log(process.env.NODE_ENV);
 
 let mode = process.env.NODE_ENV;
-if (mode.trim().toLocaleLowerCase() === "production") {
-  dotenv.config({ path: ".env.production" });
+if (mode.trim().toLocaleLowerCase() === 'production') {
+  dotenv.config({ path: '.env.production' });
 } else {
-  dotenv.config({ path: ".env.development" });
+  dotenv.config({ path: '.env.development' });
 }
 
-const express = require("express");
-const morgan = require("morgan");
-const cors = require("cors");
+const express = require('express');
+const path = require('path');
+const morgan = require('morgan');
+const cors = require('cors');
 const app = express();
-const connectToDb = require("./db/config");
-const appRouter = require("./routes/app.routes");
-const handleError = require("./midlewares/handleError");
+const connectToDb = require('./db/config');
+const appRouter = require('./routes/app.routes');
+const handleError = require('./midlewares/handleError');
 connectToDb();
 
-app.use(morgan("combined"));
+app.use(morgan('combined'));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/api", appRouter);
+app.use('/images', express.static(path.join(__dirname, 'files')));
 
-app.get("/", (req, res) => {
-  res.send("Bienvenido al API Calendar");
+app.use('/api', appRouter);
+
+app.get('/', (req, res) => {
+  res.send('Bienvenido al API Calendar');
 });
 
 app.use(handleError);
