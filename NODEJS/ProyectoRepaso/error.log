@@ -1,0 +1,27 @@
+error: MongoServerError: bad auth : authentication failed
+    at Connection.onMessage (C:\Users\Alexis\Desktop\FS8\NODEJS\ProyectoRepaso\node_modules\mongodb\lib\cmap\connection.js:202:26)
+    at MessageStream.<anonymous> (C:\Users\Alexis\Desktop\FS8\NODEJS\ProyectoRepaso\node_modules\mongodb\lib\cmap\connection.js:61:60)
+    at MessageStream.emit (node:events:513:28)
+    at processIncomingData (C:\Users\Alexis\Desktop\FS8\NODEJS\ProyectoRepaso\node_modules\mongodb\lib\cmap\message_stream.js:124:16)
+    at MessageStream._write (C:\Users\Alexis\Desktop\FS8\NODEJS\ProyectoRepaso\node_modules\mongodb\lib\cmap\message_stream.js:33:9)
+    at writeOrBuffer (node:internal/streams/writable:392:12)
+    at _write (node:internal/streams/writable:333:10)
+    at Writable.write (node:internal/streams/writable:337:10)
+    at TLSSocket.ondata (node:internal/streams/readable:766:22)
+    at TLSSocket.emit (node:events:513:28)
+error: MongoServerError: bad auth : authentication failed
+    at Connection.onMessage (C:\Users\Alexis\Desktop\FS8\NODEJS\ProyectoRepaso\node_modules\mongodb\lib\cmap\connection.js:202:26)
+    at MessageStream.<anonymous> (C:\Users\Alexis\Desktop\FS8\NODEJS\ProyectoRepaso\node_modules\mongodb\lib\cmap\connection.js:61:60)
+    at MessageStream.emit (node:events:513:28)
+    at processIncomingData (C:\Users\Alexis\Desktop\FS8\NODEJS\ProyectoRepaso\node_modules\mongodb\lib\cmap\message_stream.js:124:16)
+    at MessageStream._write (C:\Users\Alexis\Desktop\FS8\NODEJS\ProyectoRepaso\node_modules\mongodb\lib\cmap\message_stream.js:33:9)
+    at writeOrBuffer (node:internal/streams/writable:392:12)
+    at _write (node:internal/streams/writable:333:10)
+    at Writable.write (node:internal/streams/writable:337:10)
+    at TLSSocket.ondata (node:internal/streams/readable:766:22)
+    at TLSSocket.emit (node:events:513:28)
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
